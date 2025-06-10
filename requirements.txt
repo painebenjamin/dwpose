@@ -1,0 +1,17 @@
+transformers>=4.41
+torch>=2.0.0
+safetensors~=0.4
+pillow~=9.5
+torchvision>=0.19
+numpy>=1.22,<2.0
+scipy~=1.11.2
+scikit-image~=0.22
+scikit-learn~=1.5
+opencv-python~=4.9
+ninja~=1.11
+openmim~=0.3.9
+mmcv>=2.0.1,<2.2
+mmdet>=3.0.0,<3.3
+mmpose>=1.1.0
+mmengine>=0.10.0
+ordered_set~=4.0

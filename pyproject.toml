@@ -1,0 +1,27 @@
+[project]
+name = "dwpose"
+version = "0.1.0"
+description = "Pose Estimation Library developed by OpenMMLab"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mmcv>=2.0.1,<2.2",
+    "mmdet>=3.0.0,<3.3",
+    "mmengine>=0.10.0",
+    "mmpose>=1.1.0",
+    "ninja~=1.11",
+    "numpy>=1.22,<2.0",
+    "opencv-python~=4.9",
+    "openmim~=0.3.9",
+    "ordered-set~=4.0",
+    "pillow~=9.5",
+    "pip>=25.1.1",
+    "safetensors~=0.4",
+    "scikit-image~=0.22",
+    "scikit-learn~=1.5",
+    "scipy~=1.11.2",
+    "setuptools>=80.9.0",
+    "torch>=2.0.0",
+    "torchvision>=0.19",
+    "transformers>=4.41",
+]
