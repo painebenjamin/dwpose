@@ -144,8 +144,8 @@ def draw_bodypose(canvas, candidate, subset):
     return canvas
 
 
-def draw_handpose(canvas, all_hand_peaks, draw_type="pose"):
-    if draw_type == "facemask":
+def draw_handpose(canvas, all_hand_peaks, draw_type="full-pose"):
+    if draw_type in ["body-pose", "hand-pose", "hand-mask"]:
         return canvas
 
     import matplotlib
@@ -180,7 +180,7 @@ def draw_handpose(canvas, all_hand_peaks, draw_type="pose"):
         peaks = all_hand_peaks[i]
         peaks = np.array(peaks)
 
-        if draw_type == "pose":
+        if draw_type in ["full-pose", "hand-pose"]:
             for ie, e in enumerate(edges):
                 x1, y1 = peaks[e[0]]
                 x2, y2 = peaks[e[1]]
@@ -209,15 +209,16 @@ def draw_handpose(canvas, all_hand_peaks, draw_type="pose"):
                     cv2.circle(canvas, (x, y), 4, (0, 0, 255), thickness=-1)
                 else:
                     keypoints.append([x, y])
-        if draw_type in ["mask", "handmask"] and keypoints:
+
+        if draw_type in ["face-hand-mask", "hand-mask"] and keypoints:
             cv2.fillPoly(
                 canvas, pts=[cv2.convexHull(np.array(keypoints))], color=(255, 255, 255)
             )
     return canvas
 
 
-def draw_facepose(canvas, all_lmks, draw_type="pose"):
-    if draw_type == "handmask":
+def draw_facepose(canvas, all_lmks, draw_type="full-pose"):
+    if draw_type in ["body-pose", "hand-pose", "hand-mask"]:
         return canvas
 
     H, W, C = canvas.shape
@@ -229,11 +230,11 @@ def draw_facepose(canvas, all_lmks, draw_type="pose"):
             x = int(x * W)
             y = int(y * H)
             if x > eps and y > eps:
-                if draw_type == "pose":
+                if draw_type in ["full-pose", "face-pose"]:
                     cv2.circle(canvas, (x, y), 3, (255, 255, 255), thickness=-1)
                 else:
                     keypoints.append((x, y))
-        if draw_type in ["mask", "facemask"] and keypoints:
+        if draw_type in ["face-hand-mask", "face-mask"] and keypoints:
             cv2.fillPoly(
                 canvas, pts=[cv2.convexHull(np.array(keypoints))], color=(255, 255, 255)
             )

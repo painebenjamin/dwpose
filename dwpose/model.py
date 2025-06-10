@@ -36,7 +36,7 @@ def _register_module(self, module, module_name=None, force=False):
 Registry._register_module = _register_module
 
 
-def draw_pose(pose, H, W, draw_type="pose"):
+def draw_pose(pose, H, W, draw_type="full-pose"):
     bodies = pose["bodies"]
     faces = pose["faces"]
     hands = pose["hands"]
@@ -44,7 +44,7 @@ def draw_pose(pose, H, W, draw_type="pose"):
     subset = bodies["subset"]
 
     canvas = np.zeros(shape=(H, W, 3), dtype=np.uint8)
-    if draw_type == "pose":
+    if draw_type == "body-pose" or draw_type == "full-pose":
         canvas = draw_bodypose(canvas, candidate, subset)
     canvas = draw_handpose(canvas, hands, draw_type=draw_type)
     canvas = draw_facepose(canvas, faces, draw_type=draw_type)
