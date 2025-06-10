@@ -2,12 +2,11 @@ import os
 import time
 
 here = os.path.dirname(os.path.abspath(__file__))
-image_dir = os.path.join(here, "images")
 test_images = [
-    os.path.join(image_dir, "dwpose_test_1_pexels_helena_lopes.jpg"),
-    os.path.join(image_dir, "dwpose_test_2_pexels_elle_hughes.jpg"),
-    os.path.join(image_dir, "dwpose_test_3_pexels_andres_piacquadio.jpg"),
-    os.path.join(image_dir, "dwpose_test_4_pexels_jopwell.jpg"),
+    os.path.join(here, "dwpose_test_1_pexels_helena_lopes.jpg"),
+    os.path.join(here, "dwpose_test_2_pexels_elle_hughes.jpg"),
+    os.path.join(here, "dwpose_test_3_pexels_andres_piacquadio.jpg"),
+    os.path.join(here, "dwpose_test_4_pexels_jopwell.jpg"),
 ]   
 
 def test_detector() -> None:
