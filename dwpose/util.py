@@ -145,7 +145,7 @@ def draw_bodypose(canvas, candidate, subset):
 
 
 def draw_handpose(canvas, all_hand_peaks, draw_type="full-pose"):
-    if draw_type in ["body-pose", "hand-pose", "hand-mask"]:
+    if draw_type in ["body-pose", "face-pose", "face-mask"]:
         return canvas
 
     import matplotlib
